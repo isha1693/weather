@@ -4,14 +4,18 @@
     <title>Address List</title>
 </head>
 <body>
-    <h1>Addresses</h1>
+    <h1>{{ person.name }}</h1>
+    <h2>Addresses:</h2>
     <ul>
         {% for address in addresses %}
-            <li>
-                <li>{{ address.street }}, {{ address.state }} {{ address.zipcode }}</li>
-            </li>
+            <li>{{ address.street }}, {{ address.state }} {{ address.zipcode }}</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'add_address' person.id %}">Add Address</a>
+    <h2>Add Address:</h2>
+<form method="post" action="{% url 'add_address' person.pk %}">
+    {% csrf_token %}
+    {{ address_form.as_p }}
+    <button type="submit">Add Address</button>
+</form>
 </body>
 </html>
