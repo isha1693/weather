@@ -11,7 +11,6 @@ class PersonAdmin(admin.ModelAdmin):
 class AddressAdmin(admin.ModelAdmin):
     list_display = ('person', 'state','street','zip_code') 
    
-
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Address)
 
