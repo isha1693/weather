@@ -3,47 +3,52 @@
 <head>
     <title>Get Name</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   
-
     <style>
-         button {
-            width: 30%;
-            background-color: #05a60b;
-            color: rgb(229, 228, 242);
-            padding: 8px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        h1{
-            text-align: center;
-        }
-        button:hover {
-            background-color: #45a068;
-        }
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #5b5d5f;
         }
-        form {
-            max-width: 400px;
+        .form-container {
+            max-width: 500px;
             margin: auto;
             padding: 20px;
-            border: 1px solid black;
+            border-radius: 10px;
+            background-color: rgb(229, 220, 220);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container button {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
             border-radius: 5px;
-            background-color: lightgray;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-4"></div>
-    <h1 class="mb-4">Enter your Details</h1>
+    <div class="container mt-5">
+        <div class="form-container">
+            <h1>Enter your Details</h1>
     <form method="post" class="needs-validation" novalidate>
         {% csrf_token %}
         {{ form.as_p }}
        
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-success mt-3">Submit</button>
     </form>
+</div>
+</div>
 </body>
 </html>

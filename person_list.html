@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Person List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
     body {
         font-family: Arial, sans-serif;
@@ -28,8 +30,8 @@
     .add-button {
         position: fixed;
         top: 75px;
-        right: 320px;
-        text-decoration: solid;
+        right: 20px;
+        text-decoration: none;
         background-color: #d14706;
         color: rgb(229, 228, 242);
         padding: 12px;
@@ -38,7 +40,7 @@
         cursor: pointer;
         }
     .set{
-        text-decoration: solid;
+        text-decoration: none;
         background-color: #063cd1;
         color: rgb(229, 228, 242);
         padding: 10px;
@@ -48,20 +50,21 @@
 </style>
 </head>
 <body>
-    <h1>Person List</h1>
-        <form action="{% url 'person_list' %}" method="get" >
-        <input type="text" name="search" placeholder="Enter name here" value="{{ search_query }}">
-        <button type="submit" class="set">Search</button>
+    <div class="container">
+    <h1 class="my-4">Person List</h1>
+        <form action="{% url 'person_list' %}" method="get" class="form-inline mb-3" >
+        <input type="text" name="search" placeholder="Enter name here" value="{{ search_query }} " class="form-control mr-2">
+        <button type="submit"  class="btn btn-primary set">Search</button>
     </form>
 
-   <form method="get">
-    <input type="text" name="name" placeholder="Name">
-    <input type="text" name="city" placeholder="City">
+   <form method="get"  class="form-inline mb-3">
+    <input type="text" name="name" placeholder="Name" class="form-control mr-2">
+    <input type="text" name="city" placeholder="City" class="form-control mr-2">
         {{ form.as_p }}
-        <button type="submit" class="set">Filter</button>
+        <button type="submit" class="btn btn-secondary set">Filter</button>
     </form>
-    <table border="1">
-        <thead>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
             <tr>
                 <th> Name</th>
                 <th>Email</th>
@@ -89,11 +92,14 @@
                 
             </tr>
             {% endfor %}
-            <div class="col">
-                <a href="{% url 'person-list' %}" class="btn btn-primary add-button">ADD</a>
-            </div>
-    
         </tbody>
-    </table>
+            </table>
+                <a href="{% url 'person-list' %}" class="btn btn-primary add-button">ADD</a>
+        </div>
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
