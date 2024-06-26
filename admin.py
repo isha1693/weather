@@ -9,8 +9,8 @@ class PersonAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'age', 'phone',  'city')
     
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ('person', 'state','country') 
-    search_fields = ('state', 'country')
+    list_display = ('person', 'state','street','zip_code') 
+   
 
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Address)
